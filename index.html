@@ -1,0 +1,73 @@
+
+<html>
+  <head>
+    <title>Generator Skill</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="kotak-mesin">
+      <h1>Generator Skill Unik</h1>
+
+      <p>Masukan namamu untuk melihat skill tersembunyimu!</p>
+
+      <!-- ID disesuaikan menjadi namaInput -->
+      <input
+        type="text"
+        id="namaInput"
+        placeholder="Ketik namamu..."
+      >
+
+      <button onclick="cekSkill()">
+        Cek Sekarang!
+      </button>
+
+      <h2 id="hasilSkill">
+        Skill belum terdeteksi...
+      </h2>
+      <img
+        id="fotoSkill"
+        src="https://placehold.co/200x200?text=?"
+        width="400"
+        >
+    </div>
+
+    <script>
+      function cekSkill() {
+        let nama = document.getElementById("namaInput").value; 
+        
+        
+        if (nama.trim() === "") {
+          alert("Silakan masukkan namamu terlebih dahulu!");
+          return;
+        }
+
+        let daftarSkill = [
+          "Berry Bijak",
+          "Berpidato Bijak",
+          "Nadia Kebaikan",
+          "Nadia Pege",
+          "Nadia Bijak",
+        ];
+
+        let daftarGambar= [
+          "https://i.pinimg.com/1200x/66/76/c9/6676c908ab4964dd845a63fcbe8f084f.jpg",
+          "https://i.pinimg.com/1200x/ec/be/fa/ecbefa0ed313ceca9ea7abfe09c49a83.jpg",
+          "https://i.pinimg.com/736x/5e/1f/9d/5e1f9d475450b99596e5a65243d4594a.jpg",
+          "https://i.pinimg.com/736x/e6/c9/80/e6c9808143f68122df2dfc579da16d29.jpg",
+          "https://i.pinimg.com/736x/97/e0/5e/97e05eb22d37e5dafe783300478301fe.jpg",
+        ];
+
+        let acak = Math.floor(Math.random() * daftarSkill.length);
+        let skillPilihan = daftarSkill[acak];
+        let gambarPilihan = daftarGambar[acak];
+
+        document.getElementById("hasilSkill").innerText =
+          nama + ", skill unikmu: " + skillPilihan;
+
+          document.getElementById("fotoSkill").src = gambarPilihan;
+      }
+    </script>
+
+  </body>
+</html>
